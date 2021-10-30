@@ -1,0 +1,40 @@
+@startuml
+class Provider {
+  String firstName
+  String lastName
+  Geo Location
+  String PhoneNumber
+}
+
+class Giveaway {
+   provider
+   timestampOfOffer : Date
+   Integer: quantity
+   {method} IsAvailable
+
+}
+
+class Box {
+   weight
+   produceName: choicesField
+   boolean: available
+   User: GivenTo
+
+   {method} userCanGetBox
+
+}
+
+class ServiceUser {
+   String firstName
+   String lastName
+   Geo Location
+   String PhoneNumber
+   joined : Date
+   userType: choicesField
+   {method} dateofLastGift
+}
+
+ServiceUser - Giveaway : gets >
+Provider - Giveaway : issues >
+Box - Giveaway : belongs to >
+@enduml
